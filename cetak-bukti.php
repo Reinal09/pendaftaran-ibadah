@@ -1,0 +1,115 @@
+<?php
+    include 'koneksi.php';
+
+    $peserta = mysqli_query($conn, "SELECT * FROM tb_pendaftaran 
+        WHERE id_pendaftaran ='".$_GET['id_pendaftaran']."' ");
+    $p = mysqli_fetch_object($peserta);
+?>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/style.css">
+        <script src="https://kit.fontawesome.com/348c676099.js" crossorigin="anonymous"></script>
+        <title>Pendaftaran Ibadah Offline</title>
+
+        <script>
+            window.print();
+            </script>
+    
+    <style>
+            main {
+                padding: 50px;
+                overflow: auto;
+            }
+            #content {
+                width: 100%;
+                margin-top: 50px;
+            }
+            .card {
+                padding: 20px;
+            }
+            .btn {
+                color: black !important;
+                box-shadow: 1px 1px 10px #E5E5E5;
+                border: 1px solid #C3C3C3;
+                margin: 20px 0;
+                color: white;
+            }
+            .form-group {
+                margin: 20px 0;
+            }
+        </style>     
+    
+    </head>
+<body>
+
+    <!-- TITLE -->
+    <main>
+        <div id="content">
+            <div class="container">
+            <div class="card" style="border-top: 7px solid skyblue;">
+    <!-- TITLE END -->
+
+    <!-- Box Form Section -->
+    <section id="form" class="form">
+
+    <h2 class="text-center">Bukti Pendaftaran</h2>
+    <table class="table" border="0">
+        <tr>
+            <td>Kode Pendaftaran</td>
+            <td>:</td>
+            <td><?php echo $p->id_pendaftaran ?></td>
+        </tr>
+        <tr>
+            <td>Jadwal Ibadah</td>
+            <td>:</td>
+            <td><?php echo $p->jd_ibadah ?></td>
+        </tr>
+        <tr>
+            <td>Nama Lengkap</td>
+            <td>:</td>
+            <td><?php echo $p->nm_umat ?></td>
+        </tr>
+        <tr>
+            <td>Usia</td>
+            <td>:</td>
+            <td><?php echo $p->usia ?></td>
+        </tr>
+        <tr>
+            <td>Jenis Kelamin</td>
+            <td>:</td>
+            <td><?php echo $p->jk ?></td>
+        </tr>
+        <tr>
+            <td>Wilayah</td>
+            <td>:</td>
+            <td><?php echo $p->nm_wilayah ?></td>
+        </tr>
+        <tr>
+            <td>Lingkungan</td>
+            <td>:</td>
+            <td><?php echo $p->nm_lingkungan ?></td>
+        </tr>
+        <tr>
+            <td>No. Handphone</td>
+            <td>:</td>
+            <td><?php echo $p->no_telp ?></td>
+        </tr>
+    </table>
+    </div>
+    </section>
+    </div>
+    </div>
+    </main>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../../bootstrap/js/bootstrap.bundle.js"></script>
+
+
+</body>
+</html>
